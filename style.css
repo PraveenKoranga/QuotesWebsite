@@ -1,0 +1,78 @@
+.container {
+  border: 1px black solid;
+  background-image: url("https://images.pexels.com/photos/7130503/pexels-photo-7130503.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 10px;
+}
+.main {
+  margin: 80px;
+  box-shadow: -2px 5px 20px -3px rgb(0 0 0 / 93%);
+  background-color: white;
+}
+.box {
+  display: flex;
+  overflow: hidden;
+}
+
+#twitter {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  border: none;
+  border-top-left-radius: 20px;
+  cursor: pointer;
+}
+.box_content {
+  /* margin:50px 10px; */
+  /* display: flex; */
+  margin: 0;
+  padding: 0;
+}
+.box_content > img {
+  height: 20px;
+  width: 20px;
+  margin: 50px auto auto 20px;
+}
+#twitter > img {
+  width: 50px;
+  height: 25px;
+}
+#quotes {
+  margin-top: 10px;
+  margin-left: 30px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Dancing Script", cursive;
+}
+#author {
+  float: right;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-style: oblique;
+  opacity: 0.8;
+  font-size: 30px;
+  /* left:90%;
+    top: 50%;
+    position: absolute; */
+}
+#author::before {
+  content: ":By ";
+}
+#newQ {
+  width: 100%;
+  border: none;
+  background: skyblue;
+  color: rgb(85, 52, 52);
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Mate SC", serif;
+  text-shadow: 2px 3px rgb(241, 236, 236);
+  cursor: pointer;
+}

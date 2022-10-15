@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="box">
+                <div class="box_content">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.j69OA_A0LqAGqqgIUt3qfwHaHa&pid=Api&P=0&w=300&h=300">
+                    <div id="quotes"></div>
+                    <div id="author"></div>
+                </div>
+                <button id="twitter"><img
+                        src="https://tse1.mm.bing.net/th?id=OIP.yxTv94t8XgJU0aBfqoH7MwHaF_&pid=Api&P=0&w=201&h=164"></button>
+            </div>
+            <button id="newQ">new Quotes</button>
+        </div>
+    </div>
+
+
+    <script>
+        const quotes = document.getElementById("quotes");
+        const author = document.getElementById("author");
+        const newQ = document.getElementById("newQ");
+        const tweetMe = document.getElementById("twitter");
+        let realData = "";
+        let quotesData = "";
+
+        const tweetNow = () => {
+            let tweetPost = `https://twitter.com/intent/tweet?text=${quotesData.text}`;
+            window.open(tweetPost);
+        }
+
+        const getNewQuotes = () => {
+            let rnum = Math.floor(Math.random() * 1643);
+            quotesData = realData[rnum];
+            // console.log(realData[rnum]);
+            quotes.innerText = `${quotesData.text}`;
+            quotesData.author == null
+                ? (author.innerText = "Unknown")
+                : (author.innerText = `${quotesData.author}`);
+        };
+        const getQuotes = async () => {
+            const api = "https://type.fit/api/quotes";
+            try {
+                let data = await fetch(api);
+                realData = await data.json();
+                getNewQuotes();
+                console.log(realData.length);
+            } catch (error) {
+
+            }
+        };
+        newQ.addEventListener('click', getNewQuotes);
+        tweetMe.addEventListener('click', tweetNow);
+        getQuotes();
+    </script>
+</body>
+
+</html>
